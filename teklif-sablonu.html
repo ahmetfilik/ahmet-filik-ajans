@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sosyal Medya Yönetim Teklifi — Ahmet Filik Ajans</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #6C3CE1;
+      --primary-light: #8B5CF6;
+      --primary-dark: #5521C4;
+      --accent: #F97316;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #94A3B8;
+      --bg-light: #F8FAFC;
+      --border: #E2E8F0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-primary);
+      background-color: #F1F5F9;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    /* A4 Page Setup */
+    .proposal-page {
+      background: white;
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      padding: 60px 80px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+      min-height: 1120px; /* Standard A4 ratio */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .proposal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 30px;
+      margin-bottom: 40px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+    }
+
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--text-primary);
+    }
+
+    .proposal-title-meta {
+      text-align: right;
+    }
+
+    .proposal-title-meta h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .meta-item {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .client-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: var(--bg-light);
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .info-col h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .info-col p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .info-col strong {
+      color: var(--text-primary);
+    }
+
+    .proposal-body {
+      flex: 1;
+    }
+
+    .intro-paragraph {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    /* Scope of Work Table */
+    .services-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+
+    .services-table th {
+      background: var(--bg-light);
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .services-table td {
+      padding: 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    .services-table tr:hover td {
+      background: rgba(108, 60, 225, 0.02);
+    }
+
+    .service-title {
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .service-price {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .pricing-summary {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .summary-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 12px;
+      width: 320px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .summary-row.total {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+      margin-top: 12px;
+      margin-bottom: 0;
+    }
+
+    .terms-notes {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: #FFF7ED;
+      border: 1px solid #FFEDD5;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    .terms-notes h4 {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .terms-notes ul {
+      list-style-type: none;
+    }
+
+    .terms-notes li {
+      margin-bottom: 4px;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .terms-notes li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .proposal-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .signatures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .signature-box {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .signature-line {
+      height: 40px;
+      border-bottom: 1px solid var(--text-muted);
+      margin-bottom: 10px;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .signature-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .signature-subtitle {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(108, 60, 225, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      z-index: 9999;
+      transition: all 0.3s;
+    }
+
+    .print-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Print styling overrides */
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .proposal-page {
+        box-shadow: none;
+        margin: 0;
+        padding: 40px 60px;
+        page-break-after: always;
+        min-height: 100vh;
+      }
+      .print-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print Button -->
+  <button class="print-btn" onclick="window.print()">
+    <span>🖨️</span> PDF Olarak Kaydet / Yazdır
+  </button>
+
+  <!-- PAGE 1: Proposal Details -->
+  <div class="proposal-page">
+    <div>
+      <!-- Header -->
+      <div class="proposal-header">
+        <div class="logo-container">
+          <div class="logo-icon">AF</div>
+          <div class="logo-text">Ahmet Filik</div>
+        </div>
+        <div class="proposal-title-meta">
+          <h1>Hizmet Teklifi</h1>
+          <div class="meta-item"><strong>Teklif No:</strong> AF-2026-001</div>
+          <div class="meta-item"><strong>Tarih:</strong> <span contenteditable="true">26 Haziran 2026</span></div>
+          <div class="meta-item"><strong>Geçerlilik:</strong> <span contenteditable="true">15 Gün</span></div>
+        </div>
+      </div>
+
+      <!-- Client & Agent Info -->
+      <div class="client-info-grid">
+        <div class="info-col">
+          <h3>Müşteri Bilgileri</h3>
+          <p><strong>Firma Adı:</strong> <span contenteditable="true">[Müşteri İşletme Adı]</span></p>
+          <p><strong>Yetkili:</strong> <span contenteditable="true">[Müşteri Ad Soyad]</span></p>
+          <p><strong>Şehir:</strong> <span contenteditable="true">Kahramanmaraş / Çevre İller</span></p>
+        </div>
+        <div class="info-col">
+          <h3>Teklif Veren</h3>
+          <p><strong>Ajans:</strong> Ahmet Filik Sosyal Medya Hizmetleri</p>
+          <p><strong>İletişim:</strong> Ahmet Filik</p>
+          <p><strong>Telefon / WA:</strong> 0531 814 37 27</p>
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="proposal-body">
+        <div class="section-title">Değer Önerimiz</div>
+        <p class="intro-paragraph">
+          Sayın Yetkili,<br/><br/>
+          5 yıllık yerel esnaflık ve 4 yıllık e-ticaret tecrübemle, büyük ajansların yüksek fiyatlı ve esnaftan uzak yaklaşımına alternatif bir çözüm sunuyorum. İşletmenizin dijital dünyadaki sesini büyütürken, gereksiz reklam bütçeleri yerine doğrudan hedef kitlenize hitap edecek içerik stratejileri uyguluyoruz. 
+          Bu teklif, işletmenizin sosyal medya kanallarını (Instagram ve TikTok) profesyonel bir şekilde büyütmek ve müşteri trafiğinizi artırmak amacıyla hazırlanmıştır.
+        </p>
+
+        <!-- Services -->
+        <div class="section-title">Hizmet Kapsamı ve Fiyatlandırma</div>
+        <table class="services-table">
+          <thead>
+            <tr>
+              <th style="width: 70%;">Seçilen Paket ve Hizmet Ayrıntıları</th>
+              <th style="width: 30%; text-align: right;">Aylık Fiyat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="service-title" contenteditable="true">Profesyonel Yönetim Paketi (Büyüme)</div>
+                <div class="service-desc" contenteditable="true">
+                  • 2 Platform Yönetimi (Instagram + TikTok)<br/>
+                  • Ayda 12 adet özgün Reels / Video içerik üretimi<br/>
+                  • Her gün aktif Story (Hikaye) tasarımı ve paylaşımı<br/>
+                  • Topluluk yönetimi (Yorum ve DM takibi, hızlı yanıt)<br/>
+                  • Temel Meta Ads (Instagram/Facebook) reklam kurulumu ve optimizasyonu<br/>
+                  • Detaylı aylık analiz ve performans raporu
+                </div>
+              </td>
+              <td style="text-align: right;">
+                <div class="service-price" contenteditable="true">15.000 ₺ / ay</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Pricing Summary -->
+        <div class="pricing-summary">
+          <div class="summary-card">
+            <div class="summary-row">
+              <span>Hizmet Toplamı:</span>
+              <span contenteditable="true">15.000 ₺</span>
+            </div>
+            <div class="summary-row">
+              <span>KDV (Dahil/Hariç):</span>
+              <span contenteditable="true">Hariç</span>
+            </div>
+            <div class="summary-row total">
+              <span>Genel Toplam:</span>
+              <span contenteditable="true">15.000 ₺</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer of Page 1 -->
+    <div class="proposal-footer">
+      <span>Ahmet Filik Sosyal Medya Hizmetleri</span>
+      <span>Sayfa 1 / 1</span>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Terms and Conditions -->
+  <div class="proposal-page">
+    <div>
+      <!-- Header -->
+      <div class="proposal-header">
+        <div class="logo-container">
+          <div class="logo-icon">AF</div>
+          <div class="logo-text">Ahmet Filik</div>
+        </div>
+        <div class="proposal-title-meta">
+          <h1>İş Birliği Koşulları</h1>
+          <div class="meta-item"><strong>Teklif No:</strong> AF-2026-001</div>
+        </div>
+      </div>
+
+      <div class="proposal-body">
+        <div class="section-title">Kurallar ve Çalışma Prensipleri</div>
+        
+        <div class="terms-notes">
+          <h4>💡 Esnaf Dostu Çalışma Koşulları</h4>
+          <ul>
+            <li>Fiyatlandırmaya reklam bütçeleri dahil değildir. Reklam bütçesi tamamen müşteriye ait olup, bütçe doğrudan Meta/Google panellerine ödenir.</li>
+            <li>Çekimler için yerel esnaflarımızla ortak planlama yapılır. Ayda en az 1 kez fiziksel ziyaret ile video çekimleri organize edilir.</li>
+            <li>Paket ödemeleri her çalışma döneminin başında aylık peşin olarak tahsil edilir.</li>
+            <li>Tüm video ve görsel tasarımlar paylaşımdan önce onayınıza sunulur. Siz onay vermeden hiçbir içerik paylaşılmaz.</li>
+            <li>Sözleşme süreleri aylık olarak güncellenebilir; uzun vadeli bağlayıcı taahhütler esnafımızı yormamak adına talep edilmez.</li>
+          </ul>
+        </div>
+
+        <div class="intro-paragraph" style="margin-top: 30px;">
+          Bu teklif ve iş birliği şartları karşılıklı mutabakata varıldığı takdirde resmiyet kazanacaktır. Herhangi bir sorunuz olması durumunda dilediğiniz zaman <strong>0531 814 37 27</strong> numaralı hattımdan bana ulaşabilirsiniz.
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures">
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <div class="signature-title" contenteditable="true">[Müşteri İşletme Adı]</div>
+            <div class="signature-subtitle">Onaylayan Yetkili İmza / Kaşe</div>
+          </div>
+          <div class="signature-box">
+            <div class="signature-line"></div>
+            <div class="signature-title">Ahmet Filik</div>
+            <div class="signature-subtitle">Ahmet Filik Ajans Temsilcisi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer of Page 2 -->
+    <div class="proposal-footer">
+      <span>Ahmet Filik Sosyal Medya Hizmetleri</span>
+      <span>Sayfa 2 / 2</span>
+    </div>
+  </div>
+
+</body>
+</html>
